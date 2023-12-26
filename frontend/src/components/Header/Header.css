@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  box-shadow: 0px 5px 12px rgb(217, 226, 229);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 112px;
+  height: 115px;
+}
+
+.title {
+  font-size: 45px;
+  font-family: "Lexend", sans-serif;
+  margin-left: 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}

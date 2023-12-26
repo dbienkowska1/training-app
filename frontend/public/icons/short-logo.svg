@@ -1,0 +1,14 @@
+<svg width="641" height="442" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1">
+
+ <g>
+  <title>Layer 1</title>
+  <g stroke="null" id="svg_1">
+   <polygon stroke="#222221" id="svg_2" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="13.7444" fill="#222221" points="334.23223876953125,7.000006675720215 33.90245819091797,163.20713806152344 334.23223876953125,319.41424560546875 634.5609741210938,163.20713806152344 "/>
+   <polyline stroke="#222221" id="svg_3" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="15" fill="none" points="555.134521484375,243.99365234375 555.134521484375,315.7643737792969 334.4913635253906,430.52593994140625 334.23223876953125,430.52593994140625 113.58804321289062,315.7643737792969 113.58804321289062,243.99365234375 "/>
+   <polygon stroke="null" id="svg_4" fill="#EBB211" points="66.80394744873047,430.52593994140625 0.9999921917915344,430.52593994140625 0.9999921917915344,246.80133056640625 33.90245819091797,198.45413208007812 66.80394744873047,246.80133056640625 "/>
+   <line stroke="#222221" id="svg_5" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="13.7444" fill="none" y2="204.4829" x2="601.42609" y1="398.39073" x1="601.42609"/>
+   <path stroke="#222221" id="svg_6" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="13.7444" fill="none" d="m634.56099,398.39073"/>
+   <polygon stroke="#222221" id="svg_7" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="13" fill="none" points="568.2911987304688,430.52593994140625 601.4260864257812,398.3907165527344 634.5609741210938,430.52593994140625 "/>
+  </g>
+ </g>
+</svg>

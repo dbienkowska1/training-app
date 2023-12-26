@@ -1,0 +1,25 @@
+[
+  {
+    "title": "Python for beginers",
+    "date": "17.04.2023-21.04.2023",
+    "language": "EN",
+    "time": "08:00 - 16:00 (5x8 h)",
+    "trainer": "Joanna Nowak"
+  },
+
+  {
+    "title": "Modern Web Apps Development",
+    "date": "17.04.2023-21.04.2023",
+    "language": "PL",
+    "time": "17:00 - 10:00 (5x3 h)",
+    "trainer": "Rafał Nowak"
+  },
+
+  {
+    "title": "Sevelte & SvelteKit: The Complete Guide",
+    "date": "17.04.2023-21.04.2023",
+    "language": "PL",
+    "time": "08:00 - 16:00 (5x8 h)",
+    "trainer": "Małgorzata Nowak"
+  }
+]

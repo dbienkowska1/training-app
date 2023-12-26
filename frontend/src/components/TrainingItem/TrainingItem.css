@@ -1,0 +1,16 @@
+.icon {
+  width: 50px;
+  margin-right: 20px;
+  height: 40px;
+}
+
+.training-item {
+  align-items: center;
+  display: flex;
+  font-size: 19px;
+  margin: 10px 0;
+}
+
+.item-info {
+  font-size: 22px;
+}

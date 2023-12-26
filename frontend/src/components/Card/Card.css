@@ -1,0 +1,31 @@
+.card {
+  background-color: var(--beige);
+  margin-top: 60px;
+  border-radius: 10px;
+  display: flex;
+  padding: 20px 80px;
+  box-shadow: 0px 2px 6px var(--gray);
+  flex-direction: column;
+  width: 65%;
+}
+
+.card-title {
+  font-size: 35px;
+}
+
+.training-details {
+  column-gap: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.title-container {
+  padding-bottom: 20px;
+}

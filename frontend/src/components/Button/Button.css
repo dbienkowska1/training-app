@@ -1,0 +1,22 @@
+button {
+  color: var(--white);
+  background-color: var(--purple);
+  border-radius: 10px;
+  border: 2px solid var(--dark-purple);
+  padding: 12px 24px;
+  font-weight: bold;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: var(--light-purple);
+}
