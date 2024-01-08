@@ -1,4 +1,5 @@
 import "./TrainingItem.css";
+import PropTypes from "prop-types";
 
 const TrainingItem = ({ icon, iconDescription, info }) => {
   return (
@@ -7,6 +8,12 @@ const TrainingItem = ({ icon, iconDescription, info }) => {
       <span className="item-info">{info}</span>
     </div>
   );
+};
+
+TrainingItem.propTypes = {
+  icon: PropTypes.string,
+  iconDescription: PropTypes.string,
+  info: PropTypes.string,
 };
 
 export default TrainingItem;
