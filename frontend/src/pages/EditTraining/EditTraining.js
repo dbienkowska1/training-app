@@ -14,14 +14,19 @@ const EditTraining = () => {
     setLoading(true);
 
     try {
-      await fetch(`/trainings/${id}`, {
+      const response = await fetch(`/trainings/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
         body: new URLSearchParams(requestParams),
       });
-      toast.success("Training updated successfully");
+
+      if (response.status === 500) {
+        toast.error("Error during updating training");
+      } else {
+        toast.success("Training updated successfully");
+      }
     } catch (error) {
       console.error("Error during data fetching:", error.message);
       toast.error("Error during fetching data");
@@ -34,13 +39,17 @@ const EditTraining = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await fetch(`/trainings/${id}`, {
+        const response = await fetch(`/trainings/${id}`, {
           headers: {
             "Content-Type": "application/json;charset=UTF-8",
           },
         });
-        const data = await result.json();
+        const data = await response.json();
         setTraining(data);
+
+        if (response.status === 500) {
+          toast.error("Error during fetching trainings");
+        }
       } catch (error) {
         console.error("Error during data fetching:", error.message);
       } finally {

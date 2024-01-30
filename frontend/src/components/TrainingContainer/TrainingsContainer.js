@@ -10,13 +10,17 @@ const TrainingsContainer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await fetch("/trainings", {
+        const response = await fetch("/trainings", {
           headers: {
             "Content-Type": "application/json;charset=UTF-8",
           },
         });
-        const data = await result.json();
+        const data = await response.json();
         setTrainings(data);
+
+        if (response.status === 500) {
+          toast.error("Error during fetching trainings");
+        }
       } catch (error) {
         console.error("Error during data fetching:", error.message);
         toast.error("Error during fetching data");

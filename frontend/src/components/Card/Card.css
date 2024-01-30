@@ -30,15 +30,6 @@
   padding-bottom: 20px;
 }
 
-.edit {
-  background-color: rgba(195, 55, 40, 1);
-}
-
-.delete {
-  background-color: rgba(92, 148, 195, 1);
-  border-color: rgba(46, 109, 162, 1);
-}
-
 .buttons {
   display: flex;
 }

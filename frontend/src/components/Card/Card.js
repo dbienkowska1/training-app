@@ -5,9 +5,13 @@ import icons from "../../constants/icons";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 
-const Card = ({ training, createdByMe, refresh }) => {
+const Card = ({ training, refresh }) => {
   const navigate = useNavigate();
+  const [username, setUserName] = useState("");
+  const [isRegisteredForTraining, setIsRegisteredForTraining] = useState(false);
+  const [isUserTrainer, setIsUserTrainer] = useState(false);
 
   const setLanguageIcon = (language) => {
     switch (language) {
@@ -20,20 +24,55 @@ const Card = ({ training, createdByMe, refresh }) => {
     }
   };
 
+  useEffect(() => {
+    setUserName(localStorage.getItem("username"));
+    setIsRegisteredForTraining(training.users.includes(username));
+    setIsUserTrainer(training.trainer === username);
+  }, [username, training.users]);
+
   const handleDelete = async () => {
     try {
-      await fetch(`/trainings/${training._id}`, {
+      const response = await fetch(`/trainings/${training._id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
         },
       });
-      toast.success("Training deleted successfully");
+
+      if (response.status === 500) {
+        toast.error("Error during deleting training");
+      } else {
+        toast.success("Training deleted successfully");
+      }
     } catch (error) {
       console.error("Error during data fetching:", error.message);
       toast.error("Error during fetching data");
     } finally {
       refresh();
+    }
+  };
+
+  const handleRegisterForTraining = async () => {
+    try {
+      const response = await fetch(
+        `/trainings/register-for-training/${training._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          },
+          body: new URLSearchParams({ username }),
+        }
+      );
+
+      if (response.status === 500) {
+        toast.error("Error during registering user for training");
+      } else {
+        toast.success("User registered for training");
+      }
+    } catch (error) {
+      console.error("Error during registration for training:", error.message);
+      toast.error("Error during registration for training");
     }
   };
 
@@ -77,7 +116,7 @@ const Card = ({ training, createdByMe, refresh }) => {
             iconDescription="Trainer"
           />
         </div>
-        {createdByMe ? (
+        {isUserTrainer ? (
           <div className="buttons">
             <Button
               title="Edit"
@@ -90,9 +129,14 @@ const Card = ({ training, createdByMe, refresh }) => {
           </div>
         ) : (
           <Button
-            title="Register"
-            icon={icons.add}
-            iconDescription="Add icon"
+            title={isRegisteredForTraining ? "Registered" : "Register"}
+            icon={isRegisteredForTraining ? icons.check : icons.add}
+            iconDescription={
+              isRegisteredForTraining ? "Check icon" : "Add icon"
+            }
+            disabled={isRegisteredForTraining}
+            onClick={handleRegisterForTraining}
+            className={isRegisteredForTraining ? "green" : ""}
           />
         )}
       </div>

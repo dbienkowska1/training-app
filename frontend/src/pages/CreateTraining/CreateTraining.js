@@ -13,7 +13,7 @@ const CreateTraining = () => {
     setLoading(true);
 
     try {
-      await fetch("/trainings", {
+      const response = await fetch("/trainings", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
@@ -21,7 +21,12 @@ const CreateTraining = () => {
         body: new URLSearchParams(requestParams),
       });
       navigate("/my-trainings");
-      toast.success("New training created successfully");
+
+      if (response.status === 500) {
+        toast.error("Error during creating new training");
+      } else {
+        toast.success("New training created successfully");
+      }
     } catch (error) {
       console.error(error.message);
       toast.error("Error during fetching data");

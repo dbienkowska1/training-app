@@ -1,9 +1,17 @@
 import "./Button.css";
 import PropTypes from "prop-types";
 
-const Button = ({ icon, iconDescription, title, className, onClick }) => {
+const Button = ({
+  icon,
+  iconDescription,
+  title,
+  disabled,
+  className,
+  onClick,
+}) => {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       className={`button ${className ? className : ""}`}
     >
@@ -19,6 +27,7 @@ Button.propTypes = {
   icon: PropTypes.string,
   iconDescription: PropTypes.string,
   title: PropTypes.string,
+  disabled: PropTypes.bool,
   onClick: PropTypes.func,
   className: PropTypes.string,
 };

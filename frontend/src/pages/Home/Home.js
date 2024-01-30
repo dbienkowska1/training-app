@@ -38,7 +38,7 @@ const Home = () => {
     } else {
       verifyToken();
     }
-  }, [navigate]);
+  }, []);
 
   const isLoginRoute = location.pathname === "/login";
 

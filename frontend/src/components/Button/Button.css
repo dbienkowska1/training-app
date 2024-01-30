@@ -16,8 +16,26 @@
   width: 20px;
   height: 20px;
   margin-right: 10px;
+  fill: white;
 }
 
-button:hover {
+button:not([disabled]):hover {
   background-color: var(--light-purple);
+}
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
+.edit {
+  background-color: rgba(195, 55, 40, 1);
+}
+
+.delete {
+  background-color: rgba(92, 148, 195, 1);
+  border-color: rgba(46, 109, 162, 1);
+}
+
+.green {
+  background-color: rgb(9, 161, 9);
 }

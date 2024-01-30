@@ -10,6 +10,7 @@ const TrainingSchema = new Schema({
   location: { type: String, required: true },
   level: { type: String, required: true },
   trainer: { type: String, required: true },
+  users: { type: Array },
 });
 
 const Training =

@@ -17,13 +17,26 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/my-trainings/:username", async (req, res) => {
+router.get("/created-by-me/:username", async (req, res) => {
   const { username } = req.params;
 
   if (!username) throw new Error("Invalid username");
 
   try {
     const trainings = await Training.find({ trainer: username });
+    res.status(200).send(trainings);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+router.get("/registered-for/:username", async (req, res) => {
+  const { username } = req.params;
+
+  if (!username) throw new Error("Invalid username");
+
+  try {
+    const trainings = await Training.find({ users: { $in: [username] } });
     res.status(200).send(trainings);
   } catch (error) {
     res.status(500).send(error);
@@ -69,6 +82,31 @@ router.put("/:id", async (req, res) => {
     isStartAndEndDateValid(training.startDate, training.endDate);
     isStartAndEndTimeValid(training.startTime, training.endTime);
     const updatedTraining = await Training.findByIdAndUpdate(id, training);
+    res.status(200).send(updatedTraining);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error);
+  }
+});
+
+router.put("/register-for-training/:id", async (req, res) => {
+  const { id } = req.params;
+  const { username } = req.body;
+
+  if (!id || id === "") throw new Error("Invalid ID");
+
+  if (!username) throw new Error("Invalid username");
+
+  try {
+    const training = await Training.findById(id);
+
+    if (training.trainer === username)
+      throw new Error("User is training owner");
+
+    const updatedTraining = await Training.findByIdAndUpdate(id, {
+      $push: { users: username },
+    });
+
     res.status(200).send(updatedTraining);
   } catch (error) {
     console.error(error);

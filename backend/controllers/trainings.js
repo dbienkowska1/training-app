@@ -36,12 +36,12 @@ const isStartAndEndTimeValid = (startTime, endTime) => {
 
   if (!regex.test(endTime)) throw new Error("Invalid end time");
 
-  if (!Number(startTime.substring(0, 2)) <= Number(endTime.substring(0, 2)))
+  if (Number(startTime.substring(0, 2)) > Number(endTime.substring(0, 2)))
     throw new Error("Invalid start or end time");
 
   if (
     Number(startTime.substring(0, 2)) === Number(endTime.substring(0, 2)) &&
-    !Number(startTime.substring(3, 5)) >= Number(endTime.substring(3, 5))
+    Number(startTime.substring(3, 5)) < Number(endTime.substring(3, 5))
   )
     throw new Error("Invalid start or end time");
 

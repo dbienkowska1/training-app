@@ -8,6 +8,7 @@ const icons = {
   enFlag: "/icons/uk-flag.svg",
   add: "/icons/Vector.svg",
   logo: "/icons/logo.svg",
+  check: "/icons/check.svg",
 };
 
 export default icons;
