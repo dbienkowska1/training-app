@@ -14,21 +14,20 @@ const EditTraining = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`/trainings/${id}`, {
+      await fetch(`/trainings/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
         body: new URLSearchParams(requestParams),
       });
-      response.json();
-      navigate("/my-trainings");
       toast.success("Training updated successfully");
     } catch (error) {
       console.error("Error during data fetching:", error.message);
       toast.error("Error during fetching data");
     } finally {
       setLoading(false);
+      navigate("/my-trainings");
     }
   };
 

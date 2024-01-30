@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import trainingsRoute from "./routes/trainings.js";
 import connectMongoDb from "./config/mongodb.js";
+import authRoutes from "./routes/auth.js";
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/trainings", trainingsRoute);
+app.use("/auth", authRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

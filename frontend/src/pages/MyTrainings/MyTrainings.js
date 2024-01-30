@@ -8,7 +8,8 @@ const MyTrainings = () => {
 
   const fetchData = async () => {
     try {
-      const result = await fetch("/trainings/my-trainings", {
+      const username = localStorage.getItem("username");
+      const result = await fetch(`/trainings/my-trainings/${username}`, {
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
         },
